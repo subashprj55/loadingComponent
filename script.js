@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.loading-card');
-    let currentIndex = 1; 
+    let currentIndex = 1;
     let isDragging = false;
     let startY = 0, currentY = 0;
-    const dragThreshold = 50; 
+    const dragThreshold = 50;
 
     function updateCards() {
         cards.forEach((card, index) => {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (index === currentIndex) {
                 card.classList.add('active');
-                card.style.transform = 'translateY(0) scale(1.3)'; 
+                card.style.transform = 'translateY(0) scale(1.3)';
             } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
                 card.classList.add('pre');
                 card.style.transform = 'translateY(-100%)'; 
@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function attachDragListeners() {
         cards.forEach((card) => {
             card.onmousedown = null;
-
         });
 
         const activeCard = cards[currentIndex];
         activeCard.onmousedown = (e) => {
             isDragging = true;
-            startY = e.clientY;
+            startY = e.clientY; 
+            currentY = startY; 
             activeCard.style.transition = 'none';
         };
 
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isDragging) {
                 isDragging = false;
                 const moveY = currentY - startY;
-
-                if (Math.abs(moveY) > dragThreshold) {
+     
+                if (Math.abs(moveY) > dragThreshold) {    
                     if (moveY < -dragThreshold) {
                         currentIndex = (currentIndex + 1) % cards.length; 
                     }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     activeCard.style.transform = `translateY(0) scale(1.3)`;
                 }
-                updateCards();
+                updateCards(); 
             }
         };
     }
