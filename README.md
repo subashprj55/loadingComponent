@@ -36,13 +36,4 @@ A simple, interactive, and animated card slider component that allows users to n
 
 3. Open the `index.html` file in your browser to see the component in action.
 
----
-
-## Customization
-
-- **Card Content**: Add any HTML content inside the `.loading-card` divs.
-- **Card Styles**: Modify the `.loading-card` CSS to customize the look and feel.
-- **Threshold**: Adjust the `dragThreshold` variable in the JavaScript to change the sensitivity of dragging.
-
----
 
